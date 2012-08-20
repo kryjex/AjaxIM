@@ -1,4 +1,4 @@
-var sys = require('sys');
+var util = require('util');
 
 var Package = function() {};
 Package.prototype._sanitize = function(content) {
@@ -9,7 +9,7 @@ Package.prototype._sanitize = function(content) {
 var Error = exports.Error = function(error) {
     this.error = error;
 };
-sys.inherits(Error, Package);
+util.inherits(Error, Package);
 Error.prototype.toJSON = function() {
     return {
         type: 'error',
@@ -20,7 +20,7 @@ Error.prototype.toJSON = function() {
 var Success = exports.Success = function(success) {
     this.success = success;
 };
-sys.inherits(Success, Package);
+util.inherits(Success, Package);
 Success.prototype.toJSON = function() {
     return {
         type: 'success',
@@ -32,7 +32,7 @@ var Message = exports.Message = function(from, body) {
     this.from = from;
     this.body = body;
 };
-sys.inherits(Message, Package);
+util.inherits(Message, Package);
 Message.prototype.toJSON = function() {
     return {
         type: 'message',
@@ -45,7 +45,7 @@ var Notice = exports.Notice = function(username, info) {
     this.username = username;
     this.info = info;
 };
-sys.inherits(Notice, Package);
+util.inherits(Notice, Package);
 Notice.prototype.toJSON = function() {
     return {
         type: 'notice',
@@ -63,7 +63,7 @@ var Status = exports.Status = function(username, status, message) {
     this.status = -~statuses.indexOf(status) ? status : statuses[0];
     this.message = message;
 };
-sys.inherits(Status, Package);
+util.inherits(Status, Package);
 Status.prototype.toJSON = function() {
     return {
         type: 'status',
@@ -76,7 +76,7 @@ Status.prototype.toJSON = function() {
 var Offline = exports.Offline = function(username) {
     this.username = username;
 };
-sys.inherits(Offline, Package);
+util.inherits(Offline, Package);
 Offline.prototype.toJSON = function() {
     // A special type of status
     return {

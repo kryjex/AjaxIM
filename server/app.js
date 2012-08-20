@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var sys = require('sys'),
+var util = require('util'),
     express = require('express'),
     packages = require('./libs/packages'),
     o_ = require('./libs/utils');
@@ -43,12 +43,12 @@ try {
         break;
 
         case 'help':
-            sys.puts('Usage: node app.js [start|stop|restart]');
+            util.puts('Usage: node app.js [start|stop|restart]');
             process.exit(0);
         break;
     }
 } catch(e) {
-    sys.puts('Daemon library not found! Please compile ' +
+    util.puts('Daemon library not found! Please compile ' +
              './libs/daemon/daemon.node if you would like to use it.');
 }
 
