@@ -19,16 +19,8 @@ community experience.
 
 ## Installation
 
-Install `Node.js`:
-    wget http://nodejs.org/dist/node-v0.2.5.tar.gz
-    tar xzf node-v0.2.5.tar.gz
-    cd node-v0.2.5
-    ./configure
-    make
-    make install
-
-Install Node Package Manager (`npm`):
-    See instructions at http://github.com/isaacs/npm.
+Install `Node.js` (npm is included into node.js since 0.6.3):
+    See http://nodejs.org/download/
 
 Install `Express.js` and `Connect` (included automatically):
     npm install express
